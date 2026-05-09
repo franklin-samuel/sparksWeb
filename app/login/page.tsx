@@ -84,19 +84,11 @@ export default function LoginPage() {
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-[#00D4FF]/30 blur-xl animate-pulse-spark" />
                                     <div className="relative w-16 h-16 flex items-center justify-center">
-                                        <svg
-                                            className="w-16 h-16 text-[#00D4FF]"
-                                            viewBox="0 0 64 64"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M32 4L24 28H36L28 60L48 32H36L44 4H32Z"
-                                                fill="currentColor"
-                                                className="drop-shadow-[0_0_10px_rgba(0,212,255,0.8)]"
-                                            />
-                                            <circle cx="32" cy="28" r="3" fill="#FFB800" />
-                                            <circle cx="36" cy="32" r="2" fill="#5CE1FF" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                             className="size-10">
+                                            <path fill-rule="evenodd"
+                                                  d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+                                                  clip-rule="evenodd"/>
                                         </svg>
                                     </div>
                                 </div>

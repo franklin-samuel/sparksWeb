@@ -50,17 +50,11 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         <div className="flex items-center gap-3">
                             <div className="relative">
                                 <div className="absolute inset-0 bg-[#00D4FF]/20 blur-lg" />
-                                <svg
-                                    className="relative w-10 h-10 text-[#00D4FF]"
-                                    viewBox="0 0 64 64"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M32 4L24 28H36L28 60L48 32H36L44 4H32Z"
-                                        fill="currentColor"
-                                    />
-                                    <circle cx="32" cy="28" r="3" fill="#FFB800" />
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                     className="size-6">
+                                    <path fill-rule="evenodd"
+                                          d="M14.615 1.595a.75.75 0 0 1 .359.852L12.982 9.75h7.268a.75.75 0 0 1 .548 1.262l-10.5 11.25a.75.75 0 0 1-1.272-.71l1.992-7.302H3.75a.75.75 0 0 1-.548-1.262l10.5-11.25a.75.75 0 0 1 .913-.143Z"
+                                          clip-rule="evenodd"/>
                                 </svg>
                             </div>
 
