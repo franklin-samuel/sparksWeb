@@ -14,7 +14,7 @@ const InputRoot = forwardRef<HTMLInputElement, InputRootProps>(
                 {label && (
                     <label
                         htmlFor={inputId}
-                        className="block text-xs tech-text text-white/70 mb-2 tracking-wider"
+                        className="block text-sm font-medium text-gray-300 mb-2"
                     >
                         {label}
                     </label>
@@ -23,12 +23,12 @@ const InputRoot = forwardRef<HTMLInputElement, InputRootProps>(
                     ref={ref}
                     id={inputId}
                     className={`
-                        w-full px-4 py-3
-                        bg-transparent
-                        border-b-2 ${error ? 'border-red-500' : 'border-white/30'}
-                        text-white body-text
-                        placeholder:text-white/40 placeholder:font-normal
-                        focus:outline-none focus:border-white
+                        w-full px-4 py-2.5
+                        bg-[#0F1419]
+                        border ${error ? 'border-red-500 focus:border-red-500' : 'border-[#252A31] focus:border-[#00D4FF]'}
+                        rounded-lg
+                        text-white placeholder:text-gray-500
+                        focus:outline-none focus:ring-2 ${error ? 'focus:ring-red-500/20' : 'focus:ring-[#00D4FF]/20'}
                         transition-all duration-200
                         disabled:opacity-50 disabled:cursor-not-allowed
                         ${className}
@@ -36,8 +36,8 @@ const InputRoot = forwardRef<HTMLInputElement, InputRootProps>(
                     {...props}
                 />
                 {error && (
-                    <p className="mt-2 text-xs text-red-500 body-text flex items-center gap-1">
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <p className="mt-1.5 text-sm text-red-400 flex items-center gap-1.5">
+                        <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         {error}
@@ -49,25 +49,6 @@ const InputRoot = forwardRef<HTMLInputElement, InputRootProps>(
 );
 
 InputRoot.displayName = 'InputRoot';
-
-interface InputIconProps {
-    children: React.ReactNode;
-    position?: 'left' | 'right';
-    onClick?: () => void;
-}
-
-const InputIcon: React.FC<InputIconProps> = ({ children, position = 'left', onClick }) => {
-    const positionClasses = position === 'left' ? 'left-0' : 'right-0';
-
-    return (
-        <div
-            className={`absolute bottom-3 ${positionClasses} text-white/50 ${onClick ? 'cursor-pointer hover:text-white' : ''}`}
-            onClick={onClick}
-        >
-            {children}
-        </div>
-    );
-};
 
 interface InputWrapperProps {
     children: React.ReactNode;
@@ -89,7 +70,7 @@ interface InputGroupProps {
 
 const InputGroup: React.FC<InputGroupProps> = ({ children, className = '' }) => {
     return (
-        <div className={`space-y-6 ${className}`}>
+        <div className={`space-y-4 ${className}`}>
             {children}
         </div>
     );
@@ -97,7 +78,6 @@ const InputGroup: React.FC<InputGroupProps> = ({ children, className = '' }) => 
 
 export const Input = {
     Root: InputRoot,
-    Icon: InputIcon,
     Wrapper: InputWrapper,
     Group: InputGroup
 };

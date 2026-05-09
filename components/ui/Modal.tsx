@@ -62,7 +62,7 @@ interface ModalContentProps {
 
 const ModalContent: React.FC<ModalContentProps> = ({ children, className = '' }) => {
     return (
-        <div className={`bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden ${className}`}>
+        <div className={`bg-[#16181D] border border-[#252A31] rounded-2xl shadow-2xl overflow-hidden ${className}`}>
             {children}
         </div>
     );
@@ -76,14 +76,14 @@ interface ModalHeaderProps {
 
 const ModalHeader: React.FC<ModalHeaderProps> = ({ children, onClose, showCloseButton = true }) => {
     return (
-        <div className="flex items-center justify-between p-6 border-b border-zinc-200 dark:border-zinc-800">
-            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">
+        <div className="flex items-center justify-between p-6 border-b border-[#252A31]">
+            <h2 className="text-xl font-bold text-white">
                 {children}
             </h2>
             {showCloseButton && onClose && (
                 <button
                     onClick={onClose}
-                    className="text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg p-2"
+                    className="text-gray-400 hover:text-white transition-colors hover:bg-[#252A31] rounded-lg p-2"
                     aria-label="Fechar"
                 >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +115,7 @@ interface ModalFooterProps {
 
 const ModalFooter: React.FC<ModalFooterProps> = ({ children, className = '' }) => {
     return (
-        <div className={`flex items-center justify-end gap-3 p-6 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 ${className}`}>
+        <div className={`flex items-center justify-end gap-3 p-6 border-t border-[#252A31] bg-[#0F1419]/50 ${className}`}>
             {children}
         </div>
     );
@@ -128,7 +128,7 @@ interface ModalTitleProps {
 
 const ModalTitle: React.FC<ModalTitleProps> = ({ children, className = '' }) => {
     return (
-        <h3 className={`text-lg font-semibold text-zinc-900 dark:text-zinc-50 ${className}`}>
+        <h3 className={`text-lg font-semibold text-white ${className}`}>
             {children}
         </h3>
     );
@@ -141,7 +141,7 @@ interface ModalDescriptionProps {
 
 const ModalDescription: React.FC<ModalDescriptionProps> = ({ children, className = '' }) => {
     return (
-        <p className={`text-zinc-600 dark:text-zinc-400 mt-2 ${className}`}>
+        <p className={`text-gray-400 mt-2 ${className}`}>
             {children}
         </p>
     );

@@ -16,19 +16,19 @@ const ButtonRoot: React.FC<ButtonRootProps> = ({
                                                    loading = false,
                                                    ...props
                                                }) => {
-    const baseStyles = 'tech-text font-normal transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden border-2';
+    const baseStyles = 'font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#16181D] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 relative overflow-hidden rounded-lg';
 
     const variantStyles = {
-        primary: 'bg-white text-black border-white hover-glow hover:bg-transparent hover:text-white',
-        secondary: 'bg-transparent text-white border-white hover-glow-accent hover:bg-white hover:text-black',
-        ghost: 'bg-transparent text-white border-transparent hover:border-white hover-glow',
-        danger: 'bg-red-600 text-white border-red-600 hover-glow hover:bg-transparent hover:border-red-600'
+        primary: 'bg-[#00D4FF] text-[#0F1419] hover:bg-[#5CE1FF] focus:ring-[#00D4FF] font-semibold shadow-lg shadow-[#00D4FF]/20 hover:shadow-[#00D4FF]/30',
+        secondary: 'bg-[#252A31] text-white hover:bg-[#2D343C] border border-[#3A424D] focus:ring-[#00D4FF]',
+        ghost: 'bg-transparent text-gray-300 hover:bg-[#252A31] hover:text-white focus:ring-[#00D4FF]',
+        danger: 'bg-red-500 text-white hover:bg-red-600 focus:ring-red-500 shadow-lg shadow-red-500/20'
     };
 
     const sizeStyles = {
-        sm: 'px-4 py-2 text-xs',
-        md: 'px-6 py-3 text-sm',
-        lg: 'px-8 py-4 text-base'
+        sm: 'px-3 py-1.5 text-sm',
+        md: 'px-4 py-2 text-sm',
+        lg: 'px-6 py-3 text-base'
     };
 
     return (
@@ -39,7 +39,7 @@ const ButtonRoot: React.FC<ButtonRootProps> = ({
         >
             {loading && (
                 <div className="absolute inset-0 bg-inherit flex items-center justify-center">
-                    <div className="w-5 h-5 border-2 border-current border-t-transparent animate-spin" />
+                    <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
                 </div>
             )}
             <span className={loading ? 'invisible' : 'flex items-center gap-2'}>
@@ -51,7 +51,6 @@ const ButtonRoot: React.FC<ButtonRootProps> = ({
 
 interface ButtonIconProps {
     children: React.ReactNode;
-    position?: 'left' | 'right';
 }
 
 const ButtonIcon: React.FC<ButtonIconProps> = ({ children }) => {
