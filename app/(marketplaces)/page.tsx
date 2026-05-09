@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/Button';
 import { Modal } from '@/components/ui/Modal';
 import { Input } from '@/components/ui/Input';
 import { Loading } from '@/components/ui/Loading';
-import { useToast } from '@/providers/ToastProvider';
+import Image from 'next/image';
 import {
     useMercadoLivreConfig,
     useCreateMercadoLivreConfig,
@@ -88,18 +88,6 @@ export default function MarketplacesPage() {
         }
     };
 
-    const handleToggleActive = async () => {
-        if (!mercadoLivreConfig) return;
-
-        try {
-            await updateMutation.mutateAsync({
-                active: !isActive
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
     const handleDelete = async () => {
         try {
             await deleteMutation.mutateAsync();
@@ -136,15 +124,17 @@ export default function MarketplacesPage() {
                     <div className="bg-[#16181D] border border-[#252A31] rounded-xl p-6 hover:border-[#00D4FF]/50 transition-all duration-200">
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-yellow-500/10 rounded-lg flex items-center justify-center">
-                                    <svg className="w-7 h-7 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-4.28-1.05-7.5-5.4-7.5-9.5V8.3l7.5-3.75 7.5 3.75V11c0 4.1-3.22 8.45-7.5 9.5z"/>
-                                    </svg>
+                                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                                    <Image
+                                        src="/mercado-livre.svg"
+                                        alt="Mercado Livre"
+                                        width={40}
+                                        height={40}
+                                        className="object-contain"
+                                    />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">
-                                        Mercado Livre
-                                    </h3>
+                                    <h3 className="text-lg font-semibold text-white">Mercado Livre</h3>
                                     <p className="text-xs text-gray-500">
                                         {isConfigured ? 'Configurado' : 'Não configurado'}
                                     </p>
@@ -198,19 +188,6 @@ export default function MarketplacesPage() {
                                     <Button.Root
                                         variant="ghost"
                                         size="sm"
-                                        onClick={handleToggleActive}
-                                        loading={updateMutation.isPending}
-                                    >
-                                        <Button.Icon>
-                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z" />
-                                            </svg>
-                                        </Button.Icon>
-                                    </Button.Root>
-
-                                    <Button.Root
-                                        variant="ghost"
-                                        size="sm"
                                         onClick={() => setIsDeleteModalOpen(true)}
                                         className="text-red-400 hover:text-red-300"
                                     >
@@ -228,18 +205,18 @@ export default function MarketplacesPage() {
                     <div className="bg-[#16181D] border border-[#252A31] rounded-xl p-6 opacity-50 cursor-not-allowed">
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
-                                    <svg className="w-7 h-7 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-4.28-1.05-7.5-5.4-7.5-9.5V8.3l7.5-3.75 7.5 3.75V11c0 4.1-3.22 8.45-7.5 9.5z"/>
-                                    </svg>
+                                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                                    <Image
+                                        src="/amazon.svg"
+                                        alt="Amazon"
+                                        width={30}
+                                        height={30}
+                                        className="object-contain"
+                                    />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">
-                                        Amazon
-                                    </h3>
-                                    <p className="text-xs text-gray-500">
-                                        Em breve
-                                    </p>
+                                    <h3 className="text-lg font-semibold text-white">Amazon</h3>
+                                    <p className="text-xs text-gray-500">Em breve</p>
                                 </div>
                             </div>
                         </div>
@@ -248,18 +225,18 @@ export default function MarketplacesPage() {
                     <div className="bg-[#16181D] border border-[#252A31] rounded-xl p-6 opacity-50 cursor-not-allowed">
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 bg-orange-600/10 rounded-lg flex items-center justify-center">
-                                    <svg className="w-7 h-7 text-orange-600" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-4.28-1.05-7.5-5.4-7.5-9.5V8.3l7.5-3.75 7.5 3.75V11c0 4.1-3.22 8.45-7.5 9.5z"/>
-                                    </svg>
+                                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center overflow-hidden p-1">
+                                    <Image
+                                        src="/shopee.svg"
+                                        alt="Shopee"
+                                        width={25}
+                                        height={25}
+                                        className="object-contain"
+                                    />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-semibold text-white">
-                                        Shopee
-                                    </h3>
-                                    <p className="text-xs text-gray-500">
-                                        Em breve
-                                    </p>
+                                    <h3 className="text-lg font-semibold text-white">Shopee</h3>
+                                    <p className="text-xs text-gray-500">Em breve</p>
                                 </div>
                             </div>
                         </div>
