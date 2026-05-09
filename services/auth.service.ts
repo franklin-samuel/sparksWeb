@@ -52,7 +52,7 @@ export const authService = {
     },
 
     getMe: async (): Promise<User> => {
-        const response = await httpClient.get<User>('/me');
+        const response = await httpClient.get<User>('/user/me');
         return response.data!;
     },
 
