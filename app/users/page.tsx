@@ -118,7 +118,6 @@ export default function UsersPage() {
         try {
             await deleteMutation.mutateAsync({
                 userId: selectedUser.id,
-                data: deleteFormData
             });
             handleCloseDeleteModal();
         } catch (err) {
