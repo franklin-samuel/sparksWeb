@@ -9,7 +9,7 @@ interface JwtPayload {
 
 const publicRoutes = ['/login'];
 
-const adminOnlyRoutes: string[] = [];
+const adminOnlyRoutes: string[] = ['/users'];
 
 const REDIRECT_WHEN_NOT_AUTHENTICATED = "/login";
 const REDIRECT_WHEN_NOT_AUTHORIZED = "/";

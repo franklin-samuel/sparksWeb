@@ -12,7 +12,7 @@ export const userService = {
         return response.data!;
     },
 
-    delete: async (userId: string, data: DeleteUserRequest): Promise<void> => {
-        await httpClient.post(`/user/${userId}/delete`, data);
+    delete: async (userId: string): Promise<void> => {
+        await httpClient.delete(`/user/${userId}`);
     },
 };
